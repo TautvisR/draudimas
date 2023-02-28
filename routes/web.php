@@ -26,3 +26,5 @@ Route::post('/owners.setnew', [\App\Http\Controllers\OwnersController::class, 's
 Route::get('/owners/{id}/update', [\App\Http\Controllers\OwnersController::class, 'update'])->name("owners.update");
 Route::post('/owners/{id}/save', [\App\Http\Controllers\OwnersController::class, 'save'])->name('owners.save');
 Route::get('/owners/{id}/delete',[\App\Http\Controllers\OwnersController::class, 'delete'])->name("owners.delete");
+
+Route::resource('cars', \App\Http\Controllers\CarController::class);

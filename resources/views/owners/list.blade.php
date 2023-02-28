@@ -11,6 +11,7 @@
                     <tr>
                         <th>Vardas</th>
                         <th>Pavarde</th>
+                        <th>Auto</th>
                         <th>Veiksmai</th>
                     </tr>
                 </thead>
@@ -19,8 +20,15 @@
                         <tr>
                             <td>{{ $owner->name }}</td>
                             <td>{{ $owner->surname }}</td>
+                            <td>
+                                @foreach($owner->cars as $car)
+                                    {{ $car->reg_number }}<br> {{ $car->brand }} {{ $car->model }} <br>
+                                @endforeach
+                            </td>
                             <td><a href="{{ route("owners.update", $owner->id) }}" class="btn btn-outline-warning">Redaguoti</a>
+                                @if($owner->cars->count()==0)
                                 <a href="{{ route('owners.delete', $owner->id) }}" class="btn btn-outline-danger">Istrinti</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
